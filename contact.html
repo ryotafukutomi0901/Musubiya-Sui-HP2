@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>利用の相談・見学の申込み｜結び家SUI（モック2案目）</title>
+<meta name="description" content="結び家SUIを使ってみたい方の相談と、見学の申込みのフォーム。公式LINEとInstagramのDMでも受け付けています。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Shippori+Mincho:wght@500&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=1">
+<style>
+.ways { max-width: 900px; margin: 0 auto var(--s-6); padding: 0 var(--s-5); display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-4); }
+.ways a { background: var(--c-paper); border: 1px solid var(--c-line); padding: var(--s-4); text-decoration: none; display: block; }
+.ways a:hover { border-color: var(--c-ink); }
+.ways b { display: block; font-family: var(--f-head); font-weight: 500; font-size: 1.125rem; margin-bottom: var(--s-1); }
+.form { max-width: 680px; margin: 0 auto; padding: 0 var(--s-5); }
+.form .row { margin-bottom: var(--s-4); border: 0; padding: 0; }
+.form legend { padding: 0; }
+label.f, .form legend { display: block; font-size: var(--t-note); font-weight: 500; margin-bottom: var(--s-1); }
+.req { font-size: 11px; color: var(--c-danger); border: 1px solid var(--c-danger); padding: 0 4px; margin-left: var(--s-2); }
+.opt { font-size: 11px; color: var(--c-ink-muted); margin-left: var(--s-2); }
+input[type=text], input[type=tel], input[type=email], input[type=date], input[type=number], select, textarea { width: 100%; font: inherit; font-size: 1rem; padding: 10px 12px; border: 1px solid var(--c-line); border-radius: 2px; background: var(--c-paper); color: var(--c-ink); }
+textarea { min-height: 160px; }
+.opts { display: flex; flex-wrap: wrap; gap: 0 var(--s-4); }
+.opts label { display: inline-flex; align-items: center; gap: var(--s-2); min-height: 44px; }
+.wish { display: grid; grid-template-columns: 4.5em 1fr 9em; gap: var(--s-2); align-items: center; margin-bottom: var(--s-2); font-size: var(--t-note); }
+.hidden { display: none; }
+@media (max-width: 767px) {
+  .ways { grid-template-columns: 1fr; padding: 0 var(--s-3); }
+  .form { padding: 0 var(--s-3); }
+  .wish { grid-template-columns: 1fr 1fr; }
+  .wish span { grid-column: 1 / -1; }
+}
+</style>
+</head>
+<body id="top" data-no-bar>
+<div data-include="header"></div>
+
+<main>
+  <div class="pv">
+    <a class="pv-logo" href="index.html"><span class="sub">古民家レンタルスペース</span><span class="name">結び家<span class="tcy">SUI</span></span></a>
+    <div class="ph dark pv-photo photo gen" style="background-image:url(assets/img/gen/contact-top.webp)" data-label="写真：縁側（撮影予定）"></div>
+    <div class="pv-ttl"><span class="label-en">Contact</span><h1>利用の相談</h1></div>
+    <p class="pv-tagline">相談だけでも、お気軽にどうぞ</p>
+  </div>
+  <ul class="crumbs"><li><a href="index.html">ホーム</a></li><li>利用の相談</li></ul>
+
+  <section class="page-sec" id="contact">
+    <h2 class="page-ttl">利用の相談・見学の申込み</h2>
+    <p class="note" style="text-align:center;padding:0 var(--s-3)">LINEとInstagramのDMでも、ご相談を受け付けています。</p>
+    <div class="ways">
+      <a href="https://lin.ee/OCzLIhO" target="_blank" rel="noopener"><b>公式LINE</b><span class="note">@661nckdf</span></a>
+      <a href="https://www.instagram.com/sui_musubiya/" target="_blank" rel="noopener"><b>InstagramのDM</b><span class="note">@sui_musubiya</span></a>
+      <a href="mailto:suimusubiya2026@gmail.com"><b>メール</b><span class="note">suimusubiya2026@gmail.com</span></a>
+    </div>
+
+    <form class="form" id="c-form" novalidate>
+      <p>使い方と希望日が決まっていなくても大丈夫です。分かるところだけ書いてお送りください。</p>
+
+      <fieldset class="row">
+        <legend>ご相談の種類<span class="req">必須</span></legend>
+        <div class="opts">
+          <label><input type="radio" name="type" value="use"> 利用したい</label>
+          <label><input type="radio" name="type" value="visit"> 見学したい</label>
+          <label><input type="radio" name="type" value="other"> その他</label>
+        </div>
+      </fieldset>
+
+      <div class="row"><label class="f" for="c-purpose">利用目的<span class="req">必須</span></label>
+        <select id="c-purpose">
+          <option value="">選んでください</option>
+          <option value="yoga-pilates">ヨガ・ピラティス</option>
+          <option value="class">小さなお教室</option>
+          <option value="workshop">ワークショップ</option>
+          <option value="marche">マルシェ・ポップアップ</option>
+          <option value="photo">撮影・展示</option>
+          <option value="community">地域の集まり</option>
+          <option value="other">その他</option>
+        </select></div>
+
+      <fieldset class="row">
+        <legend>希望日<span class="opt">任意</span></legend>
+        <div class="wish"><span>第1希望</span><input type="date" aria-label="第1希望の日付"><select aria-label="第1希望の時間帯"><option>時間帯</option><option>午前</option><option>午後</option><option>夜</option></select></div>
+        <div class="wish"><span>第2希望</span><input type="date" aria-label="第2希望の日付"><select aria-label="第2希望の時間帯"><option>時間帯</option><option>午前</option><option>午後</option><option>夜</option></select></div>
+        <div class="wish"><span>第3希望</span><input type="date" aria-label="第3希望の日付"><select aria-label="第3希望の時間帯"><option>時間帯</option><option>午前</option><option>午後</option><option>夜</option></select></div>
+      </fieldset>
+
+      <div class="row"><label class="f" for="c-people">利用予定人数<span class="opt">任意</span></label><input type="number" id="c-people" min="1" inputmode="numeric" style="max-width:10em"></div>
+
+      <fieldset class="row">
+        <legend>利用頻度<span class="opt">任意</span></legend>
+        <div class="opts">
+          <label><input type="radio" name="freq"> 1回だけ</label>
+          <label><input type="radio" name="freq"> 月1回くらい</label>
+          <label><input type="radio" name="freq"> 週1回くらい</label>
+          <label><input type="radio" name="freq"> まだ決めていない</label>
+        </div>
+      </fieldset>
+
+      <div class="row"><label class="f" for="c-body">相談内容<span class="opt">任意</span></label><textarea id="c-body" placeholder="例：手芸の教室を月2回、6人くらいで開きたいです。机と椅子は足りますか。"></textarea></div>
+
+      <div class="row"><label class="f" for="c-name">お名前<span class="req">必須</span></label><input type="text" id="c-name" autocomplete="name"></div>
+      <div class="row"><label class="f" for="c-mail">メールアドレス<span class="req">必須</span></label><input type="email" id="c-mail" autocomplete="email"></div>
+      <div class="row"><label class="f" for="c-tel">電話番号<span class="opt">任意</span></label><input type="tel" id="c-tel" autocomplete="tel"></div>
+
+      <div class="row"><label class="f" for="c-from">結び家SUIを知ったきっかけ<span class="opt">任意</span></label>
+        <select id="c-from">
+          <option value="">選んでください</option>
+          <option>Google検索</option><option>Googleマップ</option><option>Instagram</option><option>公式LINE</option><option>知人の紹介</option><option>掲載サイト</option><option>その他</option>
+        </select></div>
+
+      <div class="row"><label><input type="checkbox" id="c-agree"> <a href="#">プライバシーポリシー</a>に同意します</label><span class="req">必須</span></div>
+
+      <p class="todo hidden" id="c-err" role="alert">ご相談の種類、利用目的、お名前、メールアドレスを入れ、プライバシーポリシーに同意してください。</p>
+      <p style="text-align:center"><button class="btn primary" type="submit" id="c-send">この場所の利用について相談する</button></p>
+      <p class="note" style="text-align:center">モックなので、どこにも送りません。送信すると完了画面に移ります。</p>
+    </form>
+  </section>
+</main>
+
+<div data-include="footer"></div>
+<script src="assets/site.js?v=1"></script>
+<script>
+// 見本の動き：利用シーンのボタンから来たら目的を、「見学したい」から来たら種類を選んだ状態で開く。
+const q = new URLSearchParams(location.search);
+const send = document.getElementById("c-send");
+const setLabel = () => {
+  const t = document.querySelector('input[name="type"]:checked');
+  send.textContent = t && t.value === "visit" ? "見学を申し込む" : "この場所の利用について相談する";
+};
+const preType = q.get("type") === "visit" ? "visit" : (q.get("purpose") ? "use" : null);
+if (preType) document.querySelector(`input[name="type"][value="${preType}"]`).checked = true;
+if (q.get("purpose")) document.getElementById("c-purpose").value = q.get("purpose");
+document.querySelectorAll('input[name="type"]').forEach((r) => r.addEventListener("change", setLabel));
+setLabel();
+
+document.getElementById("c-form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const t = document.querySelector('input[name="type"]:checked');
+  const ok = t && ["c-purpose", "c-name", "c-mail"].every((id) => document.getElementById(id).value.trim()) && document.getElementById("c-agree").checked;
+  document.getElementById("c-err").classList.toggle("hidden", ok);
+  if (ok) location.href = "thanks.html" + (t.value === "visit" ? "?type=visit" : "");
+});
+</script>
+</body>
+</html>

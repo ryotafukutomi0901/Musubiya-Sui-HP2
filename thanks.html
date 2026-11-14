@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>受け付けました｜結び家SUI（モック2案目）</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Shippori+Mincho:wght@500&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=1">
+</head>
+<body id="top" data-no-bar>
+<div data-include="header"></div>
+
+<main style="padding-top:var(--menu)">
+  <section class="page-sec">
+    <h1 class="page-ttl" id="t-ttl">ご相談を受け付けました</h1>
+    <div class="center-text">
+      <p>内容を確かめて、24時間以内にメールでお返事します。<span class="todo">※要確認</span></p>
+      <p>受け付けたことを知らせるメールを、自動でお送りしました。届かないときは、迷惑メールのフォルダもご覧ください。</p>
+      <p>お返事を待つあいだに公式LINEを追加しておくと、そのあとのやりとりが早くなります。</p>
+      <div class="btns">
+        <a class="btn primary" href="https://lin.ee/OCzLIhO" target="_blank" rel="noopener">公式LINEを追加する</a>
+        <a class="btn" href="index.html">ホームに戻る</a>
+      </div>
+      <p class="note" style="margin-top:var(--s-5)">モックなので、メールは送っていません。本番では、このページが表示された回数を相談の件数として数えます。</p>
+    </div>
+  </section>
+</main>
+
+<div data-include="footer"></div>
+<script src="assets/site.js?v=1"></script>
+<script>
+if (new URLSearchParams(location.search).get("type") === "visit") document.getElementById("t-ttl").textContent = "見学のお申込みを受け付けました";
+</script>
+</body>
+</html>

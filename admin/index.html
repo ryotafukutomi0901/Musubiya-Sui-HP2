@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>予約管理｜結び家SUI（モック2案目）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/admin.css?v=7">
+</head>
+<body>
+
+<!-- ログイン（モック） -->
+<div class="login" id="login">
+  <div class="login-card">
+    <p class="brand">結び家SUI <span>予約管理</span></p>
+    <label class="f" for="lg-mail">メールアドレス</label><input type="email" id="lg-mail" value="owner@example.com">
+    <label class="f" for="lg-pass">パスワード</label><input type="password" id="lg-pass" value="dummy-password">
+    <p class="note">本番では、パスワードのあとにスマホの認証アプリの6桁の数字を入れます（2段階認証）。</p>
+    <button class="btn primary" type="button" id="lg-go">ログイン</button>
+    <p class="note mock">これはモックです。入力した内容はどこにも送られません。</p>
+  </div>
+</div>
+
+<div class="app hidden" id="app">
+  <header class="top">
+    <p class="brand">結び家SUI <span>予約管理</span></p>
+    <p class="mock-badge">モック：データはすべて表示例です</p>
+    <a class="site-link" href="../reserve.html" target="_blank" rel="noopener">ご予約のページを開く</a>
+    <button class="logout" type="button" id="demo-reset">見本のデータに戻す</button>
+    <button class="logout" type="button" id="logout">ログアウト</button>
+  </header>
+  <nav class="side" aria-label="管理メニュー">
+    <a href="#dashboard" data-view="dashboard">ホーム</a>
+    <a href="#requests" data-view="requests">レンタルの申込み <span class="badge" id="nav-pending"></span></a>
+    <a href="#bookings" data-view="bookings">レッスン・イベント</a>
+    <a href="#calendar" data-view="calendar">カレンダー</a>
+    <a href="#slots" data-view="slots">枠と定員・休業日</a>
+    <a href="#mails" data-view="mails">お客様へのお知らせ</a>
+    <a href="#news" data-view="news">お知らせとInstagram</a>
+    <a href="#settings" data-view="settings">料金と設定</a>
+  </nav>
+  <main class="main" id="main"></main>
+  <div class="toast hidden" id="toast"></div>
+</div>
+
+<script src="../assets/mock-db.js?v=1"></script>
+<script src="../assets/admin.js?v=7"></script>
+</body>
+</html>
