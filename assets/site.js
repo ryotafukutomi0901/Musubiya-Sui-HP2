@@ -18,6 +18,16 @@ const ICON_LINE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" st
 
 const here = location.pathname.split("/").pop() || "index.html";
 
+// ページごとの「次の一歩」。スペースのことを読んでいる人は空き状況へ、ピラティスのことを読んでいる人はレッスンの予約へ。
+const RENTAL_PAGES = ["space.html", "scenes.html", "price.html", "guide.html", "reserve-rental.html"];
+const PILATES_PAGES = ["pilates.html", "reserve-pilates.html"];
+// 予約のページそのものでは、自分のページを指さないよう「ご予約の確認」か「ご予約」にする
+const NEXT = ["reserve-rental.html", "reserve-pilates.html"].includes(here) ? ["reserve-check.html", "ご予約の確認"]
+  : here === "reserve-check.html" ? ["reserve.html", "ご予約"]
+  : PILATES_PAGES.includes(here) ? ["reserve-pilates.html", "ピラティスを予約"]
+  : RENTAL_PAGES.includes(here) ? ["reserve-rental.html", "空き状況を見る"]
+  : ["reserve.html", "ご予約・空き状況"];
+
 function header() {
   // 縦書きのメニューは左から右へ読む順に並べ、いちばん右に「利用の相談」が来る
   const v = NAV.slice(1).map(([href, label]) => `<a href="${href}"${href === here ? ' aria-current="page"' : ""}>${label}</a>`).join("");
@@ -26,7 +36,7 @@ function header() {
   <header class="hd">
     <a class="hd-logo" href="index.html"><small>古民家レンタルスペース</small>結び家SUI</a>
     <nav class="hd-vnav" aria-label="主なページ">${v}</nav>
-    <a class="hd-cta" href="contact.html">利用の相談</a>
+    <a class="hd-cta" href="${NEXT[0]}">${NEXT[1]}</a>
     <button class="hd-menu" type="button" aria-label="メニューを開く" aria-expanded="false"><span></span></button>
   </header>
   <div class="nav-overlay" role="dialog" aria-modal="true" aria-label="サイト内のページ">
@@ -34,7 +44,7 @@ function header() {
     <button class="nav-close" type="button" aria-label="メニューを閉じる">×</button>
     <div class="inner">
       <p class="catch">民家の小さな空間から、<br>人と人がつながる場所を。</p>
-      <ul>${items}</ul>
+      <ul>${items}<li><a href="reserve-check.html">ご予約の確認・変更</a></li></ul>
     </div>
     <div class="sns">
       <a href="${IG_URL}" target="_blank" rel="noopener">${ICON_IG}<span>Instagram</span></a>
@@ -51,6 +61,7 @@ function footer() {
     <div class="f-cta-inner">
       <p class="f-cta-lead">あなたのやってみたいを、<br>ここで実現しませんか？</p>
       <div class="f-cta-links">
+        <a href="reserve-rental.html">空き状況を見て申し込む<small>日にちが決まっている方は、カレンダーからそのまま</small></a>
         <a href="contact.html">利用について相談する<small>こんな使い方はできる？というご相談だけでも</small></a>
         <a href="contact.html?type=visit">見学を申し込む<small>借りる前に、部屋を見てから決めたい方へ</small></a>
         <a href="${LINE_URL}" target="_blank" rel="noopener">公式LINEで相談する<small>@661nckdf</small></a>
@@ -67,6 +78,7 @@ function footer() {
     </div>
     <div class="ft-bottom">
       <ul class="ft-links">
+        <li><a href="reserve-check.html">ご予約の確認・変更</a></li>
         <li><a href="#">利用規約</a></li>
         <li><a href="#">プライバシーポリシー</a></li>
         <li><a href="#">特定商取引法に基づく表記</a></li>
@@ -114,12 +126,15 @@ if (menuBtn) {
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && document.body.classList.contains("nav-open")) closeNav(); });
 }
 
-// ---- スマホの画面下に「利用の相談」と「LINE」 ----
+// ---- スマホの画面下の2つのボタン。左はそのページの次の一歩（予約）、右は相談 ----
 if (!document.body.hasAttribute("data-no-bar")) {
+  const second = PILATES_PAGES.includes(here)
+    ? `<a class="btn" href="${LINE_URL}" target="_blank" rel="noopener">LINEで相談</a>`
+    : `<a class="btn" href="contact.html">利用の相談</a>`;
   document.body.insertAdjacentHTML("beforeend", `
-  <div class="sp-bar" aria-label="相談の入口">
-    <a class="btn primary" href="contact.html">利用の相談</a>
-    <a class="btn" href="${LINE_URL}" target="_blank" rel="noopener">LINEで相談</a>
+  <div class="sp-bar" aria-label="予約と相談の入口">
+    <a class="btn primary" href="${NEXT[0]}">${NEXT[1]}</a>
+    ${second}
   </div>`);
   document.body.classList.add("has-sp-bar");
   const toggleBar = () => document.body.classList.toggle("sp-bar-on", window.scrollY > 480);

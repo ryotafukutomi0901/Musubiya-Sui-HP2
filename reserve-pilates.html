@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ピラティスを予約する｜結び家SUI（モック2案目）</title>
+<meta name="description" content="結び家SUIのマットピラティスのご予約。カレンダーでレッスンのある日を選び、回を選ぶとその場で予約が確定します。はじめての方は体験の料金です。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Shippori+Mincho:wght@500&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=2">
+<link rel="stylesheet" href="assets/booking.css?v=3">
+</head>
+<body id="top" data-no-bar>
+<div data-include="header"></div>
+
+<main>
+  <div class="pv">
+    <a class="pv-logo" href="index.html"><span class="sub">古民家レンタルスペース</span><span class="name">結び家<span class="tcy">SUI</span></span></a>
+    <div class="ph dark pv-photo photo gen" style="background-image:url(assets/img/gen/pilates-top.webp)" data-label="写真：マットピラティスのレッスン（撮影予定）"></div>
+    <div class="pv-ttl"><span class="label-en">Mat Pilates</span><h1>ピラティスを予約する</h1></div>
+    <p class="pv-tagline">回を選ぶと、その場で予約が確定します</p>
+  </div>
+  <ul class="crumbs"><li><a href="index.html">ホーム</a></li><li><a href="reserve.html">ご予約</a></li><li>ピラティスを予約する</li></ul>
+
+  <section class="page-sec" style="padding-top:var(--s-6)">
+    <div class="bk">
+      <ul class="points">
+        <li><b>その場で確定</b>空きのある回を選んで名前と連絡先を入れると、すぐに予約が確定します。</li>
+        <li><b>はじめての方は体験の料金</b>セミパーソナル1,000円、パーソナル2,000円です。</li>
+        <li><b>締切は3時間前</b>キャンセルは○時間前まで無料です。<span class="todo">※要確認</span></li>
+      </ul>
+      <p class="side-links"><a href="pilates.html">ピラティスについて</a><a href="pilates.html#plans">2つのプランと料金</a><a href="pilates.html#rules">お支払いとキャンセル</a><a href="reserve-check.html?type=pilates">予約した回を変える・キャンセルする</a></p>
+
+      <ol class="wiz" id="wiz" aria-label="予約の手順">
+        <li class="on" aria-current="step">回を選ぶ</li><li>お名前と連絡先</li><li>予約の確定</li>
+      </ol>
+
+      <!-- 1 回を選ぶ -->
+      <div class="step" id="st1">
+        <div class="filters" role="group" aria-label="絞り込み">
+          <div class="fchips" id="menu-chips">
+            <button type="button" class="fchip" data-menu="all" aria-pressed="true">すべて</button>
+            <button type="button" class="fchip" data-menu="セミパーソナル" aria-pressed="false">セミパーソナル<small>少人数・60分</small></button>
+            <button type="button" class="fchip" data-menu="パーソナル" aria-pressed="false">パーソナル<small>1対1・50分</small></button>
+          </div>
+          <label class="trial-toggle"><input type="checkbox" id="trial"> はじめての方（体験の料金で見る）</label>
+        </div>
+        <div id="l-picker"></div>
+        <p class="note" style="margin-top:var(--s-3)">時間割は表示例です。<span class="todo">※実際の曜日と時間を確認中</span></p>
+      </div>
+
+      <!-- 2 お名前と連絡先 -->
+      <div class="step hidden" id="st2">
+        <div class="summary-card"><span class="what" id="st2-sum"></span><button class="btn sm" type="button" data-go="1">回を選び直す</button></div>
+        <div class="form-grid">
+          <div><label class="f" for="l-name">お名前<span class="req">必須</span></label><input type="text" id="l-name" autocomplete="name"></div>
+          <div><label class="f" for="l-kana">ふりがな<span class="req">必須</span></label><input type="text" id="l-kana"></div>
+          <div><label class="f" for="l-tel">電話番号<span class="req">必須</span></label><input type="tel" id="l-tel" autocomplete="tel" inputmode="tel"><p class="note" style="margin:4px 0 0">予約の確認と変更のときに使います。</p></div>
+          <div><label class="f" for="l-mail">メールアドレス<span class="req">必須</span></label><input type="email" id="l-mail" autocomplete="email" inputmode="email"></div>
+          <div class="full checks"><label><input type="checkbox" id="l-first"> 初めての参加です（体験の料金になります）</label></div>
+          <div class="full"><label class="f" for="l-body">体のことで伝えておきたいこと<span class="opt">任意</span></label><textarea id="l-body" placeholder="腰に痛みがある、運動は久しぶり、など"></textarea></div>
+          <div class="full"><label><input type="checkbox" id="l-agree"> <a href="pilates.html#rules" target="_blank" rel="noopener">お支払いとキャンセルのきまり</a>に同意します</label></div>
+        </div>
+        <p class="note">料金：<span id="l-price"></span>　お支払い方法：○ <span class="todo">※要確認</span></p>
+        <p class="err hidden" id="st2-err" role="alert"></p>
+        <div class="actions"><button class="btn" type="button" data-go="1">戻る</button><button class="btn accent" type="button" id="l-submit">この回を予約する</button></div>
+      </div>
+
+      <!-- 3 予約の確定 -->
+      <div class="step hidden" id="st3">
+        <div class="panel">
+          <h3>ご予約が確定しました</h3>
+          <p style="margin:0">予約番号</p>
+          <p class="receipt" id="l-no"></p>
+          <p class="rec-ttl" id="l-done-txt" style="font-size:1.125rem"></p>
+          <ol class="next-steps">
+            <li class="now"><b>いま</b>確定のメールをお送りしました（モックなので、下に文面を出しています）。</li>
+            <li><b>前日</b>場所と持ち物をあらためてお送りします。</li>
+            <li><b>当日</b>動きやすい服装でお越しください。お支払いは○○。<span class="todo">※要確認</span></li>
+          </ol>
+          <div class="addcal" id="l-addcal"></div>
+          <div class="actions"><a class="btn primary" id="l-check" href="reserve-check.html?type=pilates">予約を確かめる・変える</a><button class="btn" type="button" id="l-again">ほかの回も予約する</button></div>
+          <div id="l-mail-box"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div data-include="footer"></div>
+<script src="assets/site.js?v=3"></script>
+<script src="assets/mock-db.js?v=2"></script>
+<script src="assets/booking-ui.js?v=2"></script>
+<script src="assets/reserve-pilates.js?v=1"></script>
+</body>
+</html>

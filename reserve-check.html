@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ご予約の確認・変更・キャンセル｜結び家SUI（モック2案目）</title>
+<meta name="description" content="結び家SUIのご予約の確認・変更・キャンセル。レンタルスペースとピラティスのご予約を、カレンダーと一覧で確かめられます。">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Shippori+Mincho:wght@500&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=2">
+<link rel="stylesheet" href="assets/booking.css?v=3">
+</head>
+<body id="top" data-no-bar>
+<div data-include="header"></div>
+
+<main>
+  <div class="pv">
+    <a class="pv-logo" href="index.html"><span class="sub">古民家レンタルスペース</span><span class="name">結び家<span class="tcy">SUI</span></span></a>
+    <div class="ph dark pv-photo photo gen" style="background-image:url(assets/img/gen/contact-top.webp)" data-label="写真：縁側（撮影予定）"></div>
+    <div class="pv-ttl"><span class="label-en">My reservation</span><h1>ご予約の確認・変更</h1></div>
+    <p class="pv-tagline">日時を変える、キャンセルする</p>
+  </div>
+  <ul class="crumbs"><li><a href="index.html">ホーム</a></li><li><a href="reserve.html">ご予約</a></li><li>ご予約の確認・変更</li></ul>
+
+  <section class="page-sec" style="padding-top:var(--s-6)">
+    <div class="bk">
+      <div class="ctabs" role="tablist" aria-label="予約の種類">
+        <button type="button" role="tab" id="tab-rental" aria-controls="panel" aria-selected="true" data-tab="rental">レンタルスペース<span class="count" id="cnt-rental"></span></button>
+        <button type="button" role="tab" id="tab-pilates" aria-controls="panel" aria-selected="false" data-tab="pilates">ピラティス<span class="count" id="cnt-pilates"></span></button>
+      </div>
+
+      <div id="panel" role="tabpanel">
+        <div class="panel">
+          <h3 id="mine-ttl">この端末で申し込んだご予約</h3>
+          <div id="mine"></div>
+        </div>
+        <div id="s-result"></div>
+      </div>
+
+      <div class="panel" style="margin-top:var(--s-4)">
+        <h3>受付番号・予約番号で探す</h3>
+        <p>ほかの端末やお電話で申し込んだときは、メールにある番号と、お申込みのときの電話番号を入れてください。</p>
+        <div class="form-grid" style="max-width:640px">
+          <div><label class="f" for="s-no">受付番号・予約番号<span class="req">必須</span></label><input type="text" id="s-no" placeholder="例：K7M2Q9XA" autocapitalize="characters" autocomplete="off"></div>
+          <div><label class="f" for="s-tel">電話番号<span class="req">必須</span></label><input type="tel" id="s-tel" inputmode="tel" autocomplete="tel"></div>
+        </div>
+        <p class="err hidden" id="s-err" role="alert">番号か電話番号が違うか、ご予約が見つかりませんでした。</p>
+        <div class="actions"><button class="btn primary" type="button" id="s-go">探す</button></div>
+        <p class="hint" style="margin-top:var(--s-3)">モックで試せる見本：
+          <button class="linkbtn" type="button" data-try="K7M2Q9XA,090-0000-1111">レンタル・承認待ち</button>、
+          <button class="linkbtn" type="button" data-try="P8Q2D5GH,080-0000-4444">レンタル・入金待ち</button>、
+          <button class="linkbtn" type="button" data-try="Z2X5V8MC,080-0000-6666">レンタル・変更の確認中</button>、
+          <button class="linkbtn" type="button" data-try="PL7K3M9A,080-0000-1212">ピラティス</button></p>
+      </div>
+
+      <p class="side-links" style="margin:var(--s-5) 0 0"><a href="reserve-rental.html">スペースを借りる</a><a href="reserve-pilates.html">ピラティスを予約する</a><a href="https://lin.ee/OCzLIhO" target="_blank" rel="noopener">当日の変更は公式LINEへ</a></p>
+    </div>
+  </section>
+</main>
+
+<div data-include="footer"></div>
+<script src="assets/site.js?v=3"></script>
+<script src="assets/mock-db.js?v=2"></script>
+<script src="assets/booking-ui.js?v=2"></script>
+<script src="assets/reserve-check.js?v=2"></script>
+</body>
+</html>

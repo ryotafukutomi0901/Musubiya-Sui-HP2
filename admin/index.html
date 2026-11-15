@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/admin.css?v=7">
+<link rel="stylesheet" href="../assets/admin.css?v=10">
 </head>
 <body>
 
@@ -28,16 +28,21 @@
   <header class="top">
     <p class="brand">結び家SUI <span>予約管理</span></p>
     <p class="mock-badge">モック：データはすべて表示例です</p>
-    <a class="site-link" href="../reserve.html" target="_blank" rel="noopener">ご予約のページを開く</a>
+    <a class="site-link" href="../reserve.html" target="_blank" rel="noopener">お客様の画面を開く</a>
     <button class="logout" type="button" id="demo-reset">見本のデータに戻す</button>
     <button class="logout" type="button" id="logout">ログアウト</button>
   </header>
   <nav class="side" aria-label="管理メニュー">
     <a href="#dashboard" data-view="dashboard">ホーム</a>
-    <a href="#requests" data-view="requests">レンタルの申込み <span class="badge" id="nav-pending"></span></a>
-    <a href="#bookings" data-view="bookings">レッスン・イベント</a>
-    <a href="#calendar" data-view="calendar">カレンダー</a>
-    <a href="#slots" data-view="slots">枠と定員・休業日</a>
+    <p class="side-h rental">レンタルスペース</p>
+    <a href="#rental-cal" data-view="rental-cal">カレンダー</a>
+    <a href="#rental-req" data-view="rental-req">申込み <span class="badge" id="nav-rental"></span></a>
+    <p class="side-h lesson">ピラティス</p>
+    <a href="#pilates-cal" data-view="pilates-cal">カレンダー</a>
+    <a href="#pilates-book" data-view="pilates-book">予約した方 <span class="badge soft" id="nav-pilates"></span></a>
+    <a href="#pilates-slots" data-view="pilates-slots">回と定員</a>
+    <p class="side-h">共通</p>
+    <a href="#closed" data-view="closed">休業日</a>
     <a href="#mails" data-view="mails">お客様へのお知らせ</a>
     <a href="#news" data-view="news">お知らせとInstagram</a>
     <a href="#settings" data-view="settings">料金と設定</a>
@@ -46,7 +51,7 @@
   <div class="toast hidden" id="toast"></div>
 </div>
 
-<script src="../assets/mock-db.js?v=1"></script>
-<script src="../assets/admin.js?v=7"></script>
+<script src="../assets/mock-db.js?v=2"></script>
+<script src="../assets/admin.js?v=13"></script>
 </body>
 </html>

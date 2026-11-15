@@ -29,7 +29,7 @@
 
   // ---- お客様へのお知らせの文面（見本。○ のところは確認中） ------------------
   const SIGN = "\n\n――\n結び家SUI\n公式LINE：@661nckdf\nこのメールは送信専用です。ご返信は公式LINEかお問い合わせフォームへお願いします。";
-  const CHECK_URL = "https://（サイトのドメイン）/reserve.html#status";
+  const CHECK_URL = "https://（サイトのドメイン）/reserve-check.html";
   const T = {
     rental_received: (r) => [`【結び家SUI】お申込みを受け付けました（受付番号 ${r.no}）`,
       `${r.name} 様\n\n結び家SUI です。レンタルスペースのお申込みを受け付けました。\nこの時点では、まだご予約は確定していません。内容を確かめて、24時間以内にご連絡します。\n\n受付番号：${r.no}\nご希望の日時：\n${r.choices.map((c, i) => `　第${i + 1}希望　${whenText(c)}　${yen(PRICE[c.h])}`).join("\n")}\nご利用の目的：${r.purpose}（${r.people}名）\n\nお申込みの確認と取り消しは、受付番号とお電話番号でこちらからできます。\n${CHECK_URL}`],

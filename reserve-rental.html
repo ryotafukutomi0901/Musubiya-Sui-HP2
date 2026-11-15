@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>スペースを借りる（空き状況とお申込み）｜結び家SUI（モック2案目）</title>
+<meta name="description" content="結び家SUIのレンタルスペースの空き状況とお申込み。カレンダーで空いている日と時間を選び、3つまで希望を送れます。2時間2,000円から。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Shippori+Mincho:wght@500&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=2">
+<link rel="stylesheet" href="assets/booking.css?v=3">
+</head>
+<body id="top" data-no-bar>
+<div data-include="header"></div>
+
+<main>
+  <div class="pv">
+    <a class="pv-logo" href="index.html"><span class="sub">古民家レンタルスペース</span><span class="name">結び家<span class="tcy">SUI</span></span></a>
+    <div class="ph dark pv-photo photo gen" style="background-image:url(assets/img/gen/price-top.webp)" data-label="写真：机を並べた部屋（撮影予定）"></div>
+    <div class="pv-ttl"><span class="label-en">Rental space</span><h1>スペースを借りる</h1></div>
+    <p class="pv-tagline">空き状況を見て、そのまま申し込めます</p>
+  </div>
+  <ul class="crumbs"><li><a href="index.html">ホーム</a></li><li><a href="reserve.html">ご予約</a></li><li>スペースを借りる</li></ul>
+
+  <section class="page-sec" style="padding-top:var(--s-6)">
+    <div class="bk">
+      <ul class="points">
+        <li><b>承認制です</b>送ったあとに内容を確かめて、24時間以内にご連絡します。<span class="todo">※要確認</span></li>
+        <li><b>希望は3つまで</b>第1希望が埋まっていたら、第2希望で確かめます。</li>
+        <li><b>お申込みは3日前まで</b>ご利用日の7日前からのキャンセルは、料金の全額です。</li>
+      </ul>
+      <p class="side-links"><a href="price.html">料金を見る</a><a href="guide.html">ご利用の流れときまり</a><a href="space.html">広さと設備</a><a href="contact.html?type=visit">先に見学したい</a></p>
+
+      <ol class="wiz" id="wiz" aria-label="お申込みの手順">
+        <li class="on" aria-current="step">日時を選ぶ</li><li>内容を入れる</li><li>確かめる</li><li>送信完了</li>
+      </ol>
+
+      <!-- 1 日時を選ぶ -->
+      <div class="step" id="st1">
+        <h2 class="sub-ttl" style="margin:0 0 var(--s-2)">ご利用の日時を選ぶ</h2>
+        <p class="note">カレンダーで日にちを選び、開始の時刻とご利用時間を選んでください。準備と片付けの時間も含めます。承認待ちのお申込みは、まだ空きとして表示しています。</p>
+        <div id="r-picker"></div>
+        <p class="err hidden" id="st1-err"></p>
+      </div>
+
+      <!-- 2 内容を入れる -->
+      <div class="step hidden" id="st2">
+        <div class="summary-card"><span class="what" id="st2-sum"></span><button class="btn sm" type="button" data-go="1">日時を直す</button></div>
+        <div class="form-grid">
+          <div><label class="f" for="r-name">お名前<span class="req">必須</span></label><input type="text" id="r-name" autocomplete="name"></div>
+          <div><label class="f" for="r-kana">ふりがな<span class="req">必須</span></label><input type="text" id="r-kana"></div>
+          <div><label class="f" for="r-tel">電話番号<span class="req">必須</span></label><input type="tel" id="r-tel" autocomplete="tel" inputmode="tel"><p class="note" style="margin:4px 0 0">ご予約の確認のときに使います。</p></div>
+          <div><label class="f" for="r-mail">メールアドレス<span class="req">必須</span></label><input type="email" id="r-mail" autocomplete="email" inputmode="email"></div>
+          <div><label class="f" for="r-purpose">ご利用の目的<span class="req">必須</span></label>
+            <select id="r-purpose"><option value="">選んでください</option><option>ヨガ・ピラティス</option><option>教室・レッスン</option><option>ワークショップ</option><option>マルシェ</option><option>交流会</option><option>撮影</option><option>その他</option></select></div>
+          <div><label class="f" for="r-people">人数<span class="req">必須</span></label><input type="number" id="r-people" min="1" value="1" inputmode="numeric"></div>
+          <div class="full"><span class="f">あてはまるもの<span class="opt">ある方だけ</span></span>
+            <div class="checks" id="r-flags"><label><input type="checkbox" value="飲食"> 飲食</label><label><input type="checkbox" value="撮影"> 撮影</label><label><input type="checkbox" value="音楽や大きな音"> 音楽や大きな音</label><label><input type="checkbox" value="子どもの参加"> 子どもの参加</label><label><input type="checkbox" value="販売"> 販売</label></div></div>
+          <div class="full"><label class="f" for="r-desc">内容の説明<span class="opt">任意</span></label><textarea id="r-desc" placeholder="どんな集まりか、準備するものなど"></textarea></div>
+          <div><label class="f" for="r-know">結び家SUIを知ったきっかけ<span class="opt">任意</span></label>
+            <select id="r-know"><option value="">選んでください</option><option>Google検索</option><option>Googleマップ</option><option>Instagram</option><option>公式LINE</option><option>知人の紹介</option><option>レンタルスペースの掲載サイト</option><option>その他</option></select></div>
+          <div class="full checks"><label><input type="checkbox" id="r-line"> LINEで連絡を受け取る（任意）</label><label><input type="checkbox"> 催しのお知らせを受け取る（任意）</label></div>
+          <div class="full"><label><input type="checkbox" id="r-agree"> <a href="guide.html#rules" target="_blank" rel="noopener">利用規約</a>と<a href="guide.html" target="_blank" rel="noopener">ご利用前にご確認いただきたいこと</a>に同意します</label></div>
+        </div>
+        <p class="err hidden" id="st2-err" role="alert"></p>
+        <div class="actions"><button class="btn" type="button" data-go="1">戻る</button><button class="btn primary" type="button" id="to3">内容を確かめる</button></div>
+      </div>
+
+      <!-- 3 確かめる -->
+      <div class="step hidden" id="st3">
+        <div class="panel">
+          <h3>この内容で送ります</h3>
+          <div id="r-summary"></div>
+          <div class="actions"><button class="btn" type="button" data-go="2">戻って直す</button><button class="btn accent" type="button" id="r-submit">申し込む</button></div>
+        </div>
+      </div>
+
+      <!-- 4 送信完了 -->
+      <div class="step hidden" id="st4">
+        <div class="panel">
+          <h3>お申込みを受け付けました</h3>
+          <p style="margin:0">受付番号</p>
+          <p class="receipt" id="r-no"></p>
+          <p>まだご予約は確定していません。このあとの流れは次のとおりです。</p>
+          <ol class="next-steps">
+            <li class="now"><b>いま</b>受付のメールをお送りしました（モックなので、下に文面を出しています）。</li>
+            <li><b>24時間以内</b>内容を確かめて、確定かお断りかをメールでご連絡します。<span class="todo">※返事の期限を確認中</span></li>
+            <li><b>確定したら</b>確定のお知らせに書いてある口座へ、期限までにお振り込みください。</li>
+            <li><b>ご利用日の前日</b>場所と入り方をお送りします。</li>
+          </ol>
+          <p class="note">状況の確認、日時の変更、取り消しは「ご予約の確認」からできます。この端末なら番号を入れなくても出ます。</p>
+          <div class="actions"><a class="btn primary" id="r-check" href="reserve-check.html?type=rental">申込みの状況を見る</a><a class="btn" href="https://lin.ee/OCzLIhO" target="_blank" rel="noopener">公式LINEを追加する</a><button class="btn" type="button" id="r-again">続けてほかの日も申し込む</button></div>
+          <div id="r-mail-box"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="bk-bar" id="bar" aria-live="polite">
+  <div class="in"><p class="sum" id="bar-sum" style="margin:0"></p><button class="btn primary" type="button" id="bar-next" disabled>次へ：内容を入れる</button></div>
+</div>
+
+<div data-include="footer"></div>
+<script src="assets/site.js?v=3"></script>
+<script src="assets/mock-db.js?v=2"></script>
+<script src="assets/booking-ui.js?v=2"></script>
+<script src="assets/reserve-rental.js?v=2"></script>
+</body>
+</html>
